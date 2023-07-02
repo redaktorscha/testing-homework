@@ -24,22 +24,19 @@ const TestApp = () => (
 );
 
 describe("Header links", () => {
-  it("should contain link to main page", () => {
+  it("главная", () => {
     const { getByRole } = render(<TestApp />);
     const navbar = getByRole("navigation");
     const mainPageLink = within(navbar).getByRole("link", {
       name: "Example store",
     });
-    // console.info('mainPageLink', mainPageLink);
+    
     expect(mainPageLink.getAttribute("href")).toBe("/");
 
-    // expect(screen.getByRole("link", { name: "Example store" })).toHaveAttribute(
-    //   "href",
-    //   "/hw/store/"
-    // );
+ 
   });
 
-  it("should contain link to catalog", () => {
+  it("каталог", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Catalog" })).toHaveAttribute(
@@ -48,7 +45,7 @@ describe("Header links", () => {
     );
   });
 
-  it("should contain link to delivery", () => {
+  it("доставка", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Delivery" })).toHaveAttribute(
@@ -57,7 +54,7 @@ describe("Header links", () => {
     );
   });
 
-  it("should contain link to contacts", () => {
+  it("контакты", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Contacts" })).toHaveAttribute(
@@ -66,7 +63,7 @@ describe("Header links", () => {
     );
   });
 
-  it("should contain link to cart", () => {
+  it("корзина", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Cart" })).toHaveAttribute(
