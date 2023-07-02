@@ -15,8 +15,8 @@ const api = new ExampleApi(basename);
 const cart = new CartApi();
 const store = initStore(api, cart);
 
-describe("App pages", () => {
-  it("has home page and displays its title and heading correctly", () => {
+describe("Роутинг", () => {
+  it("есть главная, отображается корректно", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/"]} initialIndex={0}>
         <Provider store={store}>
@@ -31,7 +31,7 @@ describe("App pages", () => {
     expect(banner.textContent).toEqual("Welcome to Example store!");
   });
 
-  it("has catalog page and displays its title and heading correctly", () => {
+  it("есть страница каталога", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/catalog"]} initialIndex={0}>
         <Provider store={store}>
@@ -42,15 +42,12 @@ describe("App pages", () => {
 
     render(TestApp, { wrapper: BrowserRouter });
 
-    // expect(screen.getByTestId("page-title").textContent).toEqual(
-    //   "Catalog — Example store"
-    // );
     expect(screen.getByRole("heading", { level: 1 }).textContent).toEqual(
       "Catalog"
     );
   });
 
-  it("has delivery page and displays its title and heading correctly", () => {
+  it("есть страница доставки", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/delivery"]} initialIndex={0}>
         <Provider store={store}>
@@ -61,15 +58,12 @@ describe("App pages", () => {
 
     render(TestApp, { wrapper: BrowserRouter });
 
-    // expect(screen.getByTestId("page-title").textContent).toEqual(
-    //   "Catalog — Example store"
-    // );
     expect(screen.getByRole("heading", { level: 1 }).textContent).toEqual(
       "Delivery"
     );
   });
 
-  it("has contacts page and displays its title and heading correctly", () => {
+  it("есть страница контактов", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/contacts"]} initialIndex={0}>
         <Provider store={store}>
@@ -80,15 +74,13 @@ describe("App pages", () => {
 
     render(TestApp, { wrapper: BrowserRouter });
 
-    // expect(screen.getByTestId("page-title").textContent).toEqual(
-    //   "Catalog — Example store"
-    // );
+
     expect(screen.getByRole("heading", { level: 1 }).textContent).toEqual(
       "Contacts"
     );
   });
 
-  it("has shopping cart page and displays its title and heading correctly", () => {
+  it("есть корзина", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/cart"]} initialIndex={0}>
         <Provider store={store}>
@@ -99,17 +91,15 @@ describe("App pages", () => {
 
     render(TestApp, { wrapper: BrowserRouter });
 
-    // expect(screen.getByTestId("page-title").textContent).toEqual(
-    //   "Catalog — Example store"
-    // );
+
     expect(screen.getByRole("heading", { level: 1 }).textContent).toEqual(
       "Shopping cart"
     );
   });
 });
 
-describe("navigates correctly", () => {
-  it("navigates from root to Catalog", () => {
+describe("Навигация", () => {
+  it("ходит в каталог", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/"]} initialIndex={0}>
         <Provider store={store}>
@@ -131,7 +121,7 @@ describe("navigates correctly", () => {
     expect(heading.textContent).toEqual("Catalog");
   });
 
-  it("navigates from root to Delivery", () => {
+  it("ходит в доставку", () => {
     const TestApp = (
       <MemoryRouter initialEntries={["/"]} initialIndex={0}>
         <Provider store={store}>

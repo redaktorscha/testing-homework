@@ -1,7 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import { render, screen, within } from "@testing-library/react";
 
-
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -23,20 +22,18 @@ const TestApp = () => (
   </BrowserRouter>
 );
 
-describe("Header links", () => {
+describe("Ссылки в шапке", () => {
   it("главная", () => {
     const { getByRole } = render(<TestApp />);
     const navbar = getByRole("navigation");
     const mainPageLink = within(navbar).getByRole("link", {
       name: "Example store",
     });
-    
-    expect(mainPageLink.getAttribute("href")).toBe("/");
 
- 
+    expect(mainPageLink.getAttribute("href")).toBe("/");
   });
 
-  it("каталог", () => {
+  it("есть каталог", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Catalog" })).toHaveAttribute(
@@ -45,7 +42,7 @@ describe("Header links", () => {
     );
   });
 
-  it("доставка", () => {
+  it("есть доставка", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Delivery" })).toHaveAttribute(
@@ -54,7 +51,7 @@ describe("Header links", () => {
     );
   });
 
-  it("контакты", () => {
+  it("есть контакты", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Contacts" })).toHaveAttribute(
@@ -63,7 +60,7 @@ describe("Header links", () => {
     );
   });
 
-  it("корзина", () => {
+  it("есть корзина", () => {
     render(<TestApp />);
 
     expect(screen.getByRole("link", { name: "Cart" })).toHaveAttribute(
@@ -72,7 +69,7 @@ describe("Header links", () => {
     );
   });
 
-  it("should open hamburger menu after click", async () => {
+  it("по клику открывается гамбургер меню", async () => {
     const { container } = render(<TestApp />);
 
     const user = userEvent.setup();
@@ -84,7 +81,7 @@ describe("Header links", () => {
     expect(navbar.classList).not.toContain("collapse");
   });
 
-  it("should close hamburger menu after selection", async () => {
+  it("после выбора пункта меню гамбургер закрывается", async () => {
     const { container } = render(<TestApp />);
 
     const user = userEvent.setup();

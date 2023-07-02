@@ -43,7 +43,7 @@ const mockGetProducts = async (): Promise<ApiProductsReturnValue> => {
   );
 };
 
-describe("Каталогk", () => {
+describe("Каталог", () => {
   it("количество товаров с апи корректное", async () => {
     api.getProducts = mockGetProducts;
     const cart = new CartApi();
