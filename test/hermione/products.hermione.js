@@ -10,7 +10,7 @@ describe("каталог", async function () {
       .$$(".ProductItem-Name")
       .map(async (p) => await p.getText())
       .join("");
-    console.log(allProductsNames);
+
     expect(allProductsNames).not.to.equal("");
   });
 
@@ -21,7 +21,7 @@ describe("каталог", async function () {
       .$$(".ProductItem-Price")
       .map(async (p) => await p.getText())
       .join("");
-    
+
     expect(allProductsPrices).not.to.equal("");
   });
 
